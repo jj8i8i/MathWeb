@@ -1,26 +1,48 @@
+document.addEventListener('DOMContentLoaded', function() {
+
+    // --- Mobile Menu Toggle ---
+    const navToggle = document.getElementById('navToggle');
+    const navLinks = document.getElementById('navLinks');
+
+    navToggle.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+    });
+
+    // --- Generate TMO Exams ---
+    const tmoGrid = document.getElementById('tmoGrid');
+    if (tmoGrid) {
+        let tmoCards = '';
+        for (let i = 22; i >= 1; i--) {
+            tmoCards += `
+            <div class="exam-card">
+                <span class="exam-tag">ครั้งที่ ${i}</span>
+                <h3>ข้อสอบ TMO ครั้งที่ ${i}</h3>
+                <p class="subtitle">การแข่งขันคณิตศาสตร์โอลิมปิกระดับชาติ</p>
+                <div class="button-group">
+                    <a href="files/TMO_${i}.pdf" class="download-btn" download><i class="fa-solid fa-file-pdf"></i> ข้อสอบ</a>
+                    <a href="files/TMO_${i}_sol.pdf" class="solution-btn" download><i class="fa-solid fa-key"></i> เฉลย</a>
+                </div>
+            </div>`;
+        }
+        tmoGrid.innerHTML = tmoCards;
+    }
+
+});
+
+// --- Search Function ---
 function searchExams() {
-    // 1. รับค่าจากช่องค้นหา
     let input = document.getElementById('searchInput');
     let filter = input.value.toUpperCase();
+    let cards = document.querySelectorAll('.exam-card');
 
-    // 2. หากลุ่มของการ์ดข้อสอบทั้งหมด
-    let examGrid = document.querySelectorAll('.exam-grid');
-    
-    // 3. วนลูปในแต่ละหมวดหมู่
-    examGrid.forEach(grid => {
-        let cards = grid.getElementsByClassName('exam-card');
-
-        // 4. วนลูปในการ์ดแต่ละใบเพื่อเปรียบเทียบชื่อ
-        for (let i = 0; i < cards.length; i++) {
-            let h3 = cards[i].getElementsByTagName("h3")[0];
-            if (h3) {
-                let txtValue = h3.textContent || h3.innerText;
-                // 5. แสดง/ซ่อนการ์ดตามผลการค้นหา
-                if (txtValue.toUpperCase().indexOf(filter) > -1) {
-                    cards[i].classList.remove('hidden');
-                } else {
-                    cards[i].classList.add('hidden');
-                }
+    cards.forEach(card => {
+        let title = card.querySelector("h3");
+        if (title) {
+            let txtValue = title.textContent || title.innerText;
+            if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                card.style.display = "";
+            } else {
+                card.style.display = "none";
             }
         }
     });
