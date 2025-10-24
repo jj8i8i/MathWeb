@@ -5,48 +5,78 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>คลังข้อสอบคณิตศาสตร์</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body>
 
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="#" class="nav-logo">Math Archive</a>
+            <div class="nav-links">
+                <a href="#posn-camp1-entry">สอวน. ค่าย 1</a>
+                <a href="#tmo">TMO</a>
+                <a href="#math-association">สมาคมฯ</a>
+            </div>
+        </div>
+    </nav>
+
     <header>
-        <h1>คลังข้อสอบคณิตศาสตร์</h1>
-        <p>แหล่งรวมข้อสอบแข่งขันคณิตศาสตร์ โอลิมปิก และสมาคมฯ</p>
+        <div class="header-content">
+            <h1>คลังข้อสอบคณิตศาสตร์</h1>
+            <p>แหล่งรวมข้อสอบแข่งขัน เพื่อพัฒนาสู่ความเป็นเลิศ</p>
+            <div class="search-container">
+                <i class="fa-solid fa-magnifying-glass search-icon"></i>
+                <input type="text" id="searchInput" onkeyup="searchExams()" placeholder="ค้นหาข้อสอบตามปี หรือชื่อ...">
+            </div>
+        </div>
     </header>
 
     <main class="container">
         <section id="posn-camp1-entry">
-            <h2>สอวน. คณิตศาสตร์ เข้าค่าย 1</h2>
+            <h2><i class="fa-solid fa-campground"></i> สอวน. คณิตศาสตร์ เข้าค่าย 1</h2>
             <div class="exam-grid">
                 <div class="exam-card">
                     <h3>ข้อสอบคัดเลือกวิชาคณิตศาสตร์ ปี 2568</h3>
                     <p class="subtitle">ข้อสอบคัดเลือกค่าย 1 สอวน. รายวิชาคณิตศาสตร์</p>
-                    <a href="files/POSN_Camp1_2568.pdf" class="download-btn" download>ดาวน์โหลด</a>
+                    <a href="files/POSN_Camp1_2568.pdf" class="download-btn" download><i class="fa-solid fa-download"></i> ดาวน์โหลด</a>
                 </div>
                 <div class="exam-card">
                     <h3>ข้อสอบคัดเลือกวิชาคณิตศาสตร์ ปี 2567</h3>
                     <p class="subtitle">ข้อสอบคัดเลือกค่าย 1 สอวน. รายวิชาคณิตศาสตร์</p>
-                    <a href="files/POSN_Camp1_2567.pdf" class="download-btn" download>ดาวน์โหลด</a>
+                    <a href="files/POSN_Camp1_2567.pdf" class="download-btn" download><i class="fa-solid fa-download"></i> ดาวน์โหลด</a>
                 </div>
             </div>
         </section>
 
         <section id="tmo">
-            <h2>TMO (Thailand Mathematical Olympiad)</h2>
+            <h2><i class="fa-solid fa-trophy"></i> TMO (Thailand Mathematical Olympiad)</h2>
             <div class="exam-grid">
                  <div class="exam-card">
-                    <h3>ข้อสอบ TMO ครั้งที่ 22</h3>
+                    <h3>ข้อสอบ TMO ครั้งที่ 1</h3>
                     <p class="subtitle">การแข่งขันคณิตศาสตร์โอลิมปิกระดับชาติ</p>
-                    <a href="files/TMO_20.pdf" class="download-btn" download>ดาวน์โหลด</a>
+                    <a href="files/TMO_11.pdf" class="download-btn" download><i class="fa-solid fa-download"></i> ดาวน์โหลด</a>
+                </div>
+                </div>
+        </section>
+
+        <section id="math-association">
+            <h2><i class="fa-solid fa-building-columns"></i> สมาคมคณิตศาสตร์</h2>
+            <div class="exam-grid">
+                <div class="exam-card">
+                    <h3>ข้อสอบสมาคมคณิตศาสตร์ ปี 2568</h3>
+                    <p class="subtitle">ข้อสอบแข่งขันระดับมัธยมศึกษาตอนปลาย</p>
+                    <a href="files/math-assoc-2568.pdf" class="download-btn" download><i class="fa-solid fa-download"></i> ดาวน์โหลด</a>
                 </div>
             </div>
         </section>
 
-        </main>
+    </main>
 
     <footer>
         <p>&copy; 2025 คลังข้อสอบคณิตศาสตร์. All Rights Reserved.</p>
     </footer>
 
+    <script src="script.js"></script>
 </body>
 </html>
