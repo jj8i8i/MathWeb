@@ -1,97 +1,190 @@
+:root {
+    --primary-color: #005aab;
+    --primary-dark: #003d73;
+    --secondary-color: #007bff;
+    --light-bg: #f8f9fa;
+    --text-color: #343a40;
+    --white-color: #ffffff;
+    --shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+}
+
 body {
     font-family: 'Sarabun', sans-serif;
     margin: 0;
-    background-color: #f4f7f9;
-    color: #333;
-}
-
-header {
-    background-color: #005aab;
-    color: white;
-    padding: 2rem 1rem;
-    text-align: center;
-    border-bottom-left-radius: 20px;
-    border-bottom-right-radius: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-header h1 {
-    margin: 0;
-    font-size: 2.5rem;
+    background-color: var(--light-bg);
+    color: var(--text-color);
 }
 
 .container {
     max-width: 1200px;
-    margin: 2rem auto;
-    padding: 0 1rem;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+/* Navbar */
+.navbar {
+    background-color: var(--white-color);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    width: 100%;
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 70px;
+}
+
+.nav-logo {
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: var(--primary-dark);
+    text-decoration: none;
+}
+
+.nav-links a {
+    color: var(--text-color);
+    text-decoration: none;
+    margin-left: 2rem;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: var(--primary-color);
+}
+
+/* Header */
+header {
+    background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+    color: var(--white-color);
+    text-align: center;
+    padding: 5rem 1rem;
+}
+
+header h1 {
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+}
+
+/* Search Box */
+.search-container {
+    margin-top: 2rem;
+    position: relative;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.search-icon {
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #aaa;
+}
+
+#searchInput {
+    width: 100%;
+    padding: 1rem 1rem 1rem 3.5rem;
+    font-size: 1rem;
+    border-radius: 50px;
+    border: none;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    outline: none;
+    transition: box-shadow 0.3s ease;
+}
+
+#searchInput:focus {
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+
+/* Main Content */
+main {
+    padding-top: 2rem;
 }
 
 section {
-    margin-bottom: 3rem;
+    margin-bottom: 3.5rem;
 }
 
 h2 {
-    font-size: 1.8rem;
-    color: #003d73;
-    border-bottom: 3px solid #005aab;
-    padding-bottom: 0.5rem;
-    margin-bottom: 1.5rem;
+    font-size: 2rem;
+    color: var(--primary-dark);
+    margin-bottom: 2rem;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
 }
 
 .exam-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
     gap: 1.5rem;
 }
 
 .exam-card {
-    background-color: white;
-    border-radius: 12px;
-    box-shadow: 0 6px 12px rgba(0, 90, 171, 0.1);
-    padding: 1.5rem;
+    background-color: var(--white-color);
+    border-radius: 15px;
+    box-shadow: var(--shadow);
+    padding: 1.75rem;
     display: flex;
     flex-direction: column;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid #e9ecef;
+}
+
+.exam-card.hidden {
+    display: none;
 }
 
 .exam-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0, 90, 171, 0.15);
+    transform: translateY(-8px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
 }
 
 .exam-card h3 {
-    font-size: 1.3rem;
+    font-size: 1.4rem;
     margin-top: 0;
-    color: #003d73;
+    color: var(--primary-dark);
 }
 
 .exam-card .subtitle {
-    font-size: 0.95rem;
-    color: #555;
-    flex-grow: 1; /* ดันปุ่มไปด้านล่าง */
+    font-size: 1rem;
+    color: #6c757d;
+    flex-grow: 1;
     margin-bottom: 1.5rem;
 }
 
 .download-btn {
-    display: block;
-    background-color: #007bff;
-    color: white;
+    background: linear-gradient(90deg, var(--secondary-color), var(--primary-color));
+    color: var(--white-color);
     text-align: center;
     padding: 0.8rem 1rem;
     border-radius: 8px;
     text-decoration: none;
-    font-weight: bold;
-    transition: background-color 0.3s ease;
+    font-weight: 500;
+    font-size: 1rem;
+    transition: opacity 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
 }
 
 .download-btn:hover {
-    background-color: #0056b3;
+    opacity: 0.9;
 }
 
+/* Footer */
 footer {
     text-align: center;
-    padding: 1.5rem;
+    padding: 2rem;
     background-color: #e9ecef;
-    color: #555;
+    color: #6c757d;
     margin-top: 2rem;
 }
